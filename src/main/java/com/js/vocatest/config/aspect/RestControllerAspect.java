@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class RestControllerAspect {
 
     /**
-     * Rest response handler rest response.
+     * Rest response handler rest response.-
      *
      * @param proceedingJoinPoint the proceeding join point
      * @return the rest response

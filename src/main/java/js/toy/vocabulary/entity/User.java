@@ -1,4 +1,4 @@
-package com.js.vocatest.entity;
+package js.toy.vocabulary.entity;
 
 /**
  * The type User.

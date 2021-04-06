@@ -1,10 +1,10 @@
-package com.js.vocatest;
+package js.toy.vocabulary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class VocaTestApplicationTests {
+class VocabularyApplicationTests {
 
 	@Test
 	void contextLoads() {

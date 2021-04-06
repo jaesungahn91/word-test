@@ -1,4 +1,4 @@
-package com.js.vocatest.entity;
+package js.toy.vocabulary.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -14,11 +14,9 @@ import java.time.LocalDateTime;
 /**
  * The type Base entity.
  */
-
 // 해당 클래스에 Auditing 기능을 포함
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-
 // JPA Entity 클래스들이 해당 추상 클래스를 상속할 경우 컬럼을 공통매핑 정보로 인식
 @MappedSuperclass
 public abstract class BaseEntity {

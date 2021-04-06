@@ -1,4 +1,4 @@
-package com.js.vocatest.entity;
+package js.toy.vocabulary.entity;
 
 import lombok.*;
 
@@ -11,7 +11,6 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-
 // equals, hashCode 자동 생성
 @EqualsAndHashCode(of = "id", callSuper = false)
 @Table(name = "voca")
@@ -25,4 +24,5 @@ public class Voca extends BaseEntity{
     private String word;
     @Column(name = "mean")
     private String mean;
+
 }

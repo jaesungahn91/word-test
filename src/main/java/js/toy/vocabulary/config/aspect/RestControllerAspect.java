@@ -1,6 +1,6 @@
-package com.js.vocatest.config.aspect;
+package js.toy.vocabulary.config.aspect;
 
-import com.js.vocatest.config.response.RestResponse;
+import js.toy.vocabulary.config.response.RestResponse;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -21,7 +21,7 @@ public class RestControllerAspect {
      * @return the rest response
      * @throws Throwable the throwable
      */
-    @Around("execution(* com.js.vocatest.controller.*.*(..))")
+    @Around("execution(* js.toy.vocabulary.controller.*.*(..))")
     public RestResponse<Object> restResponseHandler(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         return new RestResponse<>(HttpStatus.OK.value(), "OK", proceedingJoinPoint.proceed());
     }

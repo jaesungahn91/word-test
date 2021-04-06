@@ -1,4 +1,4 @@
-package com.js.vocatest.config.response;
+package js.toy.vocabulary.config.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

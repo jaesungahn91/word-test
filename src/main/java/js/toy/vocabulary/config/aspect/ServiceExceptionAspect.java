@@ -1,5 +1,6 @@
-package com.js.vocatest.config.aspect;
+package js.toy.vocabulary.config.aspect;
 
+import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Component;
 /**
  * The type Service exception aspect.
  */
+@Slf4j
 @Component
 @Aspect
 public class ServiceExceptionAspect {
@@ -18,7 +20,7 @@ public class ServiceExceptionAspect {
      * @param proceedingJoinPoint the proceeding join point
      * @return the object
      */
-    @Around("execution(* com.js.vocatest.service.*.*(..))")
+    @Around("execution(* js.toy.vocabulary.service.*.*(..))")
     public Object serviceExceptionHandler(ProceedingJoinPoint proceedingJoinPoint){
         try {
             return proceedingJoinPoint.proceed();

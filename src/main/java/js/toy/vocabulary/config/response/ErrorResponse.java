@@ -1,4 +1,4 @@
-package com.js.vocatest.config.response;
+package js.toy.vocabulary.config.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,15 +8,25 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * The type Error response.
+ */
 @Getter
-//@AllArgsConstructor
-//@NoArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class ErrorResponse {
     private int code;
     private String message;
     private List<String> errorDetails;
     private String responseTime;
 
+    /**
+     * Instantiates a new Error response.
+     *
+     * @param code         the code
+     * @param message      the message
+     * @param errorDetails the error details
+     */
     public ErrorResponse(int code, String message, List<String> errorDetails) {
         this.code = code;
         this.message = message;

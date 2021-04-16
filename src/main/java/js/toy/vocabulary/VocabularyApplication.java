@@ -21,6 +21,7 @@ public class VocabularyApplication {
 		SpringApplication.run(VocabularyApplication.class, args);
 	}
 
+	// 초기화 작업 할 메소드, 해당 어노테이션이 적용된 초기화 메서드는 WAS가 띄워질 때 실행
 	@PostConstruct
 	public void init(){
 		vocabularyRepository.save(new Voca(1L, "hello", "하이"));

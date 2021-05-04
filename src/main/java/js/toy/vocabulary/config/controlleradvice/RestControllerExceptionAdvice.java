@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 public class RestControllerExceptionAdvice {
 
     /**
-     * Handler runtime exception error response.
+     * Exception 에러 핸들러
      *
      * @param e   the e
      * @param req the req

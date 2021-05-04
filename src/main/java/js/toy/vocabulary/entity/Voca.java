@@ -7,21 +7,23 @@ import javax.persistence.*;
 /**
  * The type Voca.
  */
-@Entity
-@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
+@Getter
 // equals, hashCode 자동 생성
-@EqualsAndHashCode(of = "id", callSuper = false)
+@EqualsAndHashCode(of = "seq", callSuper = false)
+@Entity
 @Table(name = "voca")
 public class Voca extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "voca_id", updatable = false, nullable = false)
-    private Long id;
+    @Column(name = "seq", updatable = false, nullable = false)
+    private Long seq;
+
     @Column(name = "word")
     private String word;
+
     @Column(name = "mean")
     private String mean;
 

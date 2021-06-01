@@ -8,19 +8,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 /**
- * The type Rest controller aspect.
+ * 컨트롤러 전역 Aspect
  */
 @Aspect
 @Component
 public class RestControllerAspect {
 
     /**
-     * Rest response handler rest response.
+     * 컨트롤러 전역 Aspect
      *
      * @param proceedingJoinPoint the proceeding join point
      * @return the rest response
      * @throws Throwable the throwable
      */
+    // 범위 설정 execution(* js.toy.vocabulary.controller.*.*(..))
     @Around("execution(* js.toy.vocabulary.controller.*.*(..))")
     public RestResponse<Object> restResponseHandler(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         return new RestResponse<>(HttpStatus.OK.value(), "OK", proceedingJoinPoint.proceed());

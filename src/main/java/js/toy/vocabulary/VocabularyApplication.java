@@ -1,6 +1,8 @@
 package js.toy.vocabulary;
 
+import js.toy.vocabulary.entity.User;
 import js.toy.vocabulary.entity.Voca;
+import js.toy.vocabulary.repository.UserRepository;
 import js.toy.vocabulary.repository.VocabularyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -17,13 +19,18 @@ public class VocabularyApplication {
 	@Autowired
     VocabularyRepository vocabularyRepository;
 
+	@Autowired
+	UserRepository userRepository;
+
 	public static void main(String[] args) {
 		SpringApplication.run(VocabularyApplication.class, args);
 	}
 
+	// 초기화 작업 할 메소드, 해당 어노테이션이 적용된 초기화 메서드는 WAS가 띄워질 때 실행
 	@PostConstruct
 	public void init(){
 		vocabularyRepository.save(new Voca(1L, "hello", "하이"));
+		userRepository.save(new User(1L, "test", "test", "안자이청"));
 	}
 
 }

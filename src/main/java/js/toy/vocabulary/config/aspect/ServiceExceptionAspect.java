@@ -7,7 +7,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
 /**
- * The type Service exception aspect.
+ * 서비스 예외처리 Aspect
  */
 @Slf4j
 @Component
@@ -15,11 +15,12 @@ import org.springframework.stereotype.Component;
 public class ServiceExceptionAspect {
 
     /**
-     * Service exception handler object.
+     * 서비스 예외처리 Aspect
      *
      * @param proceedingJoinPoint the proceeding join point
      * @return the object
      */
+    // 범위 설정 execution(* js.toy.vocabulary.service.*.*(..))
     @Around("execution(* js.toy.vocabulary.service.*.*(..))")
     public Object serviceExceptionHandler(ProceedingJoinPoint proceedingJoinPoint){
         try {

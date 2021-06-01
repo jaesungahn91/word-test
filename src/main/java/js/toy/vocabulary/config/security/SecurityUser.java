@@ -19,7 +19,8 @@ public class SecurityUser implements UserDetails {
     /**
      * Instantiates a new Security user.
      */
-    public SecurityUser() {}
+    public SecurityUser() {
+    }
 
     /**
      * Instantiates a new Security user.
@@ -29,7 +30,7 @@ public class SecurityUser implements UserDetails {
     public SecurityUser(User user) {
         this.seq = user.getSeq();
         this.email = user.getEmail();
-        this.password = user.getPassword();
+        this.password = "{noop}"+user.getPassword();
         this.user = user;
     }
 
@@ -38,16 +39,22 @@ public class SecurityUser implements UserDetails {
         return null;
     }
 
+    public Long getSeq() {
+        return this.seq;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
     @Override
     public String getPassword() {
-//        return this.password;
-        return "test";
+        return this.password;
     }
 
     @Override
     public String getUsername() {
-//        return this.email;
-        return "test";
+        return this.email;
     }
 
     @Override

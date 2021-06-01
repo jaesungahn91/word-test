@@ -14,10 +14,10 @@ import java.time.LocalDateTime;
 /**
  * The type Base entity.
  */
-// 해당 클래스에 Auditing 기능을 포함
+/* 해당 클래스에 Auditing 기능을 포함 */
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-// JPA Entity 클래스들이 해당 추상 클래스를 상속할 경우 컬럼을 공통매핑 정보로 인식
+/* JPA Entity 클래스들이 해당 추상 클래스를 상속할 경우 컬럼을 공통매핑 정보로 인식 */
 @MappedSuperclass
 public abstract class BaseEntity {
     @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
@@ -29,4 +29,9 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Column(name = "update_at", columnDefinition = "timestamp with time zone")
     private LocalDateTime updateAt;
+
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss")
+    @Column(name = "deleted_at", columnDefinition = "timestamp with time zone")
+    protected LocalDateTime deletedAt;
+    protected Boolean deleted = false;
 }

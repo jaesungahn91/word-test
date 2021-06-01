@@ -3,6 +3,7 @@ package js.toy.vocabulary.config.controlleradvice;
 import js.toy.vocabulary.config.response.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 public class RestControllerExceptionAdvice {
 
     /**
-     * Exception 에러 핸들러
+     * RuntimeException 에러 핸들러
      *
      * @param e   the e
      * @param req the req
@@ -35,5 +36,19 @@ public class RestControllerExceptionAdvice {
         log.error("=============== Handler RuntimeException ===============");
         e.printStackTrace();
         return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage(), null);
+    }
+
+    /**
+     * 로그인시 아이디 비밀번호 불일치
+     * @param e
+     * @param req
+     * @return
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BadCredentialsException.class)
+    public ErrorResponse handleBadCredentialsException(BadCredentialsException e, HttpServletRequest req) {
+        log.error("===================== Handler handleBadCredentialsException =====================");
+        e.printStackTrace();
+        return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "아이디 혹은 비밀번호가 일치하지 않습니다.", null);
     }
 }

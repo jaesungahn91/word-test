@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 @Getter
-// equals, hashCode 자동 생성
+/* equals, hashCode 자동 생성 */
 @EqualsAndHashCode(of = "seq", callSuper = false)
 @Entity
 @Table(name = "voca")
